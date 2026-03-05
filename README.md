@@ -107,20 +107,20 @@ Use this flow whenever you recalibrate profiles:
 
 ```mermaid
 flowchart TD
-  A[Start Calibration Campaign] --> B[No-weight baseline for all profiles]
-  B --> C[Known trial-weight run for all profiles<br/>fixed mass + fixed angle]
-  C --> D[Compute vector delta per profile<br/>V_trial - V_no_weight]
-  D --> E[Derive raw phaseOffsetDeg per profile]
-  E --> F[Apply branch rule:<br/>phaseOffsetDeg = wrap(raw + 180)]
-  F --> G[PATCH /profiles/:id for every profile]
-  G --> H[Physical confirmation per profile<br/>LED mode=add, add small trial mass]
-  H --> I{vibMag decreases?}
-  I -->|Yes| J[Keep profile offset]
-  I -->|No| K[Revert profile and test opposite branch]
-  J --> L{All profiles confirmed?}
+  A["Start calibration campaign"] --> B["No-weight baseline for all profiles"]
+  B --> C["Known trial-weight run for all profiles"]
+  C --> D["Compute vector delta per profile: Vtrial - VnoWeight"]
+  D --> E["Derive raw phase offset per profile"]
+  E --> F["Apply +180 branch and wrap to -180..180"]
+  F --> G["Write phaseOffsetDeg to each profile"]
+  G --> H["Physical confirmation per profile in LED add mode"]
+  H --> I{"Did vibMag decrease?"}
+  I -->|Yes| J["Keep profile offset"]
+  I -->|No| K["Revert profile and test opposite branch"]
+  J --> L{"All profiles confirmed?"}
   K --> L
   L -->|No| H
-  L -->|Yes| M[Calibration complete]
+  L -->|Yes| M["Calibration complete"]
 ```
 
 Rules:
