@@ -1,0 +1,24 @@
+credentials.h
+
+# Arduino / firmware build outputs
+*.bin
+*.elf
+*.map
+littlefs.bin
+data_backup_*/
+_*.json
+_*.csv
+
+# Python caches
+__pycache__/
+*.pyc
+
+# Node build artifacts
+DynamicBalancer_Final_FlashUIPrototype/node_modules/
+DynamicBalancer_Final_FlashUIPrototype/dist/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+tools/gh/

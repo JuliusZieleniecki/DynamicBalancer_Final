@@ -1,0 +1,5 @@
+{
+  "name": "Dynamic Spin Balancer",
+  "description": "A professional technician-friendly balancing dashboard for an ESP32-based spin balancer.",
+  "requestFramePermissions": []
+}
